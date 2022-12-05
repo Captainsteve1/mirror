@@ -77,12 +77,11 @@ elif not LOG_CHANNEL.startswith("-"):
 else:
     LOG_CHANNEL = int(LOG_CHANNEL)
 
-FORCESUB_ENABLE = environ.get("FORCESUB_ENABLE")
-if FORCESUB_ENABLE is (False or None):
-    FORCESUB_ENABLE = False
+FORCESUB_ENABLE = environ.get("FSUB").lower() == "true"
+if FORCESUB_ENABLE is False:
     LOGGER(__name__).warning("ForceSub is Disabled!")
 
-FORCESUB_CHANNEL = environ.get("FORCESUB_CHANNEL", "")
+FORCESUB_CHANNEL = environ.get("FSUB_CHANNEL_ID", "")
 if len(FORCESUB_CHANNEL) == 0:
     LOGGER(__name__).warning("FORCESUB_CHANNEL not provided!")
     FORCESUB_CHANNEL = "-100"
@@ -91,17 +90,16 @@ elif not FORCESUB_CHANNEL.startswith("-"):
 else:
     FORCESUB_CHANNEL = int(FORCESUB_CHANNEL)
 
-FORCESUB_CHANNEL_UNAME = environ.get("FORCESUB_CHANNEL_UNAME", "")
+FORCESUB_CHANNEL_UNAME = environ.get("CHANNEL_USERNAME", "")
 if len(FORCESUB_CHANNEL_UNAME) == 0:
     LOGGER(__name__).warning("ForceSub Channel Username not provided!")
-    FORCESUB_CHANNEL_UNAME = "bypassbots"
 else:
     FORCESUB_CHANNEL_UNAME = FORCESUB_CHANNEL_UNAME.replace("@", "")
 
 BOTOWNER_UNAME = environ.get("BOTOWNER_UNAME", "")
 if len(BOTOWNER_UNAME) == 0:
     LOGGER(__name__).warning("BotOwner Username not provided!")
-    BOTOWNER_UNAME = "missemily22"
+    BOTOWNER_UNAME = "jvbots"
 else:
     BOTOWNER_UNAME = BOTOWNER_UNAME.replace("@", "")
 
