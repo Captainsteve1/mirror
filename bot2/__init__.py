@@ -8,7 +8,7 @@ from bot2.config import API_HASH, API_ID, BOT_TOKEN, BOT_USERNAME
 from bot2.logging import LOGGER
 
 BotStartTime = time.time()
-plugins = dict(root="bot/plugins")
+plugins = dict(root="bot2/plugins")
 
 if os.path.exists("logs.txt"):
     with open("logs.txt", "r+") as f:
