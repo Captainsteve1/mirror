@@ -26,7 +26,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 7:
 
 un = f"@{BOT_USERNAME}"
 
-LOGGER(__name__).info(f"Pyrogram v{__version__} (Layer {layer}) started on {un}.")
+LOGGER(__name__).info(f"Pyrogram v{__version__} (Layer {layer}) started.")
 LOGGER(__name__).info("Telegram Bot Started.")
 
 bot = Client(
@@ -34,5 +34,6 @@ bot = Client(
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN,
+    workers=256,
     plugins=plugins,
 )  # https://docs.pyrogram.org/topics/smart-plugins
