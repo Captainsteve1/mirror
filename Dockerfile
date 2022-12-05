@@ -1,3 +1,4 @@
+FROM missemily22/multifbot:latest
 FROM anasty17/mltb:latest
 
 WORKDIR /usr/src/app
